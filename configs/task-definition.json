@@ -1,0 +1,44 @@
+{
+  "family": "backend-service-template",
+  "taskRoleArn": "",
+  "executionRoleArn": "",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/backend-service-template",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 8221
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "PROD"
+        }
+      ],
+      "secrets": [
+      ],
+
+      "cpu": 200,
+      "memory": 400,
+      "memoryReservation": 400,
+      "volumesFrom": [],
+      "image": "",
+      "essential": true,
+      "name": "backend-service-template"
+    }
+  ],
+  "requiresCompatibilities": ["EC2"],
+  "pidMode": "task",
+  "ipcMode": "none"
+}
